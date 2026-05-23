@@ -1,0 +1,80 @@
+---
+import PhoneFrame from "./PhoneFrame.astro";
+import GarageScene from "./GarageScene.astro";
+
+interface Props {
+  garageState: "closed" | "opening" | "open" | "closing" | "cycle";
+  phoneSlot: "closed" | "opening" | "closing";
+}
+
+const { garageState, phoneSlot } = Astro.props;
+---
+
+<div class="gate-mobile-demo">
+  <div class="gate-mobile-demo__garage">
+    <GarageScene state={garageState} />
+  </div>
+  <div class="gate-mobile-demo__phone">
+    <PhoneFrame compact>
+      {phoneSlot === "closed" && (
+        <>
+          <header class="gate-app-header gate-app-header--compact">
+            <h2>Garage</h2>
+            <p>Tap to control</p>
+          </header>
+          <div class="gate-mini-status closed">Closed</div>
+          <div class="gate-actions gate-actions--compact">
+            <button type="button" class="gate-btn gate-btn-open gate-btn--sm" aria-label="Open">
+              <span class="gate-btn-icon">↑</span>
+              Open
+            </button>
+            <button type="button" class="gate-btn gate-btn-close gate-btn--sm" aria-label="Close">
+              <span class="gate-btn-icon">↓</span>
+              Close
+            </button>
+          </div>
+        </>
+      )}
+      {phoneSlot === "opening" && (
+        <>
+          <header class="gate-app-header gate-app-header--compact">
+            <h2>Garage</h2>
+            <p>Opening…</p>
+          </header>
+          <div class="gate-mini-toast">Sending open</div>
+          <div class="gate-mini-status opening">Opening</div>
+          <div class="gate-actions gate-actions--compact">
+            <button type="button" class="gate-btn gate-btn-open gate-btn--sm pressed" aria-label="Open">
+              <span class="gate-btn-icon">↑</span>
+              Open
+            </button>
+            <button type="button" class="gate-btn gate-btn-close gate-btn--sm" disabled aria-label="Close">
+              <span class="gate-btn-icon">↓</span>
+              Close
+            </button>
+          </div>
+        </>
+      )}
+      {phoneSlot === "closing" && (
+        <>
+          <header class="gate-app-header gate-app-header--compact">
+            <h2>Garage</h2>
+            <p>Closing…</p>
+          </header>
+          <div class="gate-mini-toast gate-mini-toast--close">Sending close</div>
+          <div class="gate-mini-status closing">Closing</div>
+          <div class="gate-actions gate-actions--compact">
+            <button type="button" class="gate-btn gate-btn-open gate-btn--sm" disabled aria-label="Open">
+              <span class="gate-btn-icon">↑</span>
+              Open
+            </button>
+            <button type="button" class="gate-btn gate-btn-close gate-btn--sm pressed" aria-label="Close">
+              <span class="gate-btn-icon">↓</span>
+              Close
+            </button>
+          </div>
+        </>
+      )}
+    </PhoneFrame>
+  </div>
+</div>

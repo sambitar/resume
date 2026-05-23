@@ -1,0 +1,27 @@
+---
+import { site } from "../lib/content";
+
+interface Props {
+  size?: "hero" | "compact";
+}
+
+const { size = "hero" } = Astro.props;
+---
+
+<figure
+  class:list={["profile-portrait", `profile-portrait--${size}`]}
+  aria-label={`Photo of ${site.profile.name}`}
+>
+  <div class="profile-portrait-aura" aria-hidden="true"></div>
+  <div class="profile-portrait-ring" aria-hidden="true"></div>
+  <div class="profile-portrait-frame">
+    <img
+      src="/images/profile.jpg"
+      alt={site.profile.name}
+      width={size === "hero" ? 400 : 160}
+      height={size === "hero" ? 400 : 160}
+      loading={size === "hero" ? "eager" : "lazy"}
+      decoding="async"
+    />
+  </div>
+</figure>

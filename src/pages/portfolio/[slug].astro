@@ -1,0 +1,69 @@
+---
+import PortfolioTreeLayout from "../../layouts/PortfolioTreeLayout.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import ProjectScreenshot from "../../components/portfolio-tree/ProjectScreenshot.astro";
+import { site } from "../../lib/content";
+import { getProject, getProjectSlugs } from "../../lib/portfolio-tree";
+
+export function getStaticPaths() {
+  return getProjectSlugs().map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const project = getProject(slug!)!;
+---
+
+<PortfolioTreeLayout
+  title={`${project.productName} · ${site.profile.name}`}
+  description={project.summary.slice(0, 160)}
+>
+  <article class="container-wide project-page">
+    <header class="project-page-hero">
+      <span class="product-badge">{project.clientContext}</span>
+      <h1>{project.productName}</h1>
+      <p class="lead">{project.summary}</p>
+      <div class="project-meta-row">
+        <span>{project.role}</span>
+        {project.tech.map((t) => <span>{t}</span>)}
+      </div>
+    </header>
+
+    <section aria-labelledby="outcomes-heading">
+      <span class="section-label">Outcomes</span>
+      <h2 id="outcomes-heading" class="sr-only">Key outcomes</h2>
+      <ul class="project-outcomes">
+        {project.outcomes.map((o) => <li>{o}</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="features-heading">
+      <span class="section-label">Capabilities</span>
+      <h2 id="features-heading" class="sr-only">Product features</h2>
+      <div class="project-features-grid">
+        {project.features.map((f) => (
+          <div class="project-feature-chip">
+            <h3>{f.title}</h3>
+            <p>{f.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="screenshots-section" aria-labelledby="screens-heading">
+      <h2 id="screens-heading">Product screens</h2>
+      <p class="section-hint">
+        Simulated UI mockups — light customer-facing theme, separate from this portfolio shell.
+      </p>
+      <div class="screenshot-stack">
+        {project.screenshots.map((shot) => (
+          <figure class="screenshot-block" id={`screen-${shot.id}`}>
+            <figcaption>{shot.caption}</figcaption>
+            <ProjectScreenshot projectId={project.id} id={shot.id} />
+            <span class="sim-label">Simulated demonstration</span>
+          </figure>
+        ))}
+      </div>
+    </section>
+  </article>
+  <SiteFooter />
+</PortfolioTreeLayout>

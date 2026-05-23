@@ -1,0 +1,188 @@
+meta:
+  title: Case studies
+  description: In-depth product walkthroughs with UI demonstrations.
+
+tree:
+  - id: all-projects
+    label: All projects
+    href: /portfolio
+    type: branch
+
+  - id: case-studies
+    label: Case studies
+    type: folder
+    children:
+      - id: meridian-pm
+        label: Meridian Project Hub
+        href: /portfolio/meridian-pm
+        type: project
+        tagline: Full-stack PM platform with AI
+      - id: gate-smart-access
+        label: GateLink Mobile Access
+        href: /portfolio/gate-smart-access
+        type: project
+        tagline: Legacy gate → mobile app & smart home
+      - id: pharma-warehouse-env
+        label: PharmaVault Env Monitor
+        href: /portfolio/pharma-warehouse-env
+        type: project
+        tagline: 3D warehouse map · BMS-linked HVAC
+
+projects:
+  meridian-pm:
+    id: meridian-pm
+    productName: Meridian Project Hub
+    clientContext: B2B operations platform (concept delivery)
+    title: Project management platform with integrated AI
+    summary: >
+      End-to-end project management software built for teams that need schedule,
+      financial, and technical visibility in one place—not three disconnected spreadsheets.
+      Gantt planning, milestone tracking, budget burn-down, document control, and an
+      AI copilot that answers questions from live project data.
+    role: Solo design & build — product concept, UI, backend integration, AI layer
+    tech:
+      - React-style UI (simulated)
+      - REST / structured project API
+      - LLM copilot (RAG over project records)
+      - Reporting engine
+      - Role-based dashboards
+    outcomes:
+      - Single source of truth for schedule, cost, and technical status
+      - Natural-language Q&A on budget and timeline without exporting reports
+      - Stakeholder-ready PDF and on-screen reporting from the same data model
+    features:
+      - id: dashboard
+        title: Executive dashboard
+        description: Portfolio health, budget variance, and at-risk work packages at a glance.
+      - id: gantt
+        title: Interactive Gantt
+        description: Dependencies, critical path highlights, and baseline vs actual bars.
+      - id: financials
+        title: Financial control
+        description: Approved budget, committed spend, forecast, and category drill-down.
+      - id: technical
+        title: Technical tracker
+        description: Deliverables, RFIs, submittals, and engineering milestones per phase.
+      - id: ai
+        title: AI project copilot
+        description: Ask anything about schedule slip, burn rate, or open risks—in plain language.
+      - id: reports
+        title: Reporting studio
+        description: Quarterly packs, custom charts, and exportable summaries for leadership.
+    screenshots:
+      - id: dashboard
+        caption: Portfolio dashboard — KPIs, burn rate, and risk flags
+      - id: gantt
+        caption: Gantt schedule with dependencies and critical path
+      - id: financials
+        caption: Budget vs actual with forecast line
+      - id: technical
+        caption: Technical deliverables and milestone gate
+      - id: ai
+        caption: AI copilot grounded in live project records
+      - id: reports
+        caption: Report builder and export preview
+
+  gate-smart-access:
+    id: gate-smart-access
+    productName: GateLink
+    clientContext: Consumer retrofit — legacy garage & gate controls
+    title: Mobile open/close for any legacy gate or garage remote system
+    summary: >
+      Upgrade existing garage doors and sliding gates that still use handheld remotes—without
+      replacing the motor or control board. A small IoT node wires into the legacy inputs the
+      remote already triggers; the GateLink app on your phone sends open and close commands
+      from anywhere. Optional smart-home links feed the same node into Alexa, Apple Home,
+      Google Home, and other hubs you already use.
+    role: Hardware retrofit, protocol bridge, mobile app, smart-home integrations
+    tech:
+      - ESP32 IoT endpoint
+      - Node-RED / MQTT orchestration
+      - iOS & Android app (simulated)
+      - Legacy dry-contact / RF bridge
+      - Alexa · HomeKit · Google Home
+    outcomes:
+      - Open and close from the phone—no new key fobs to carry
+      - Legacy control board kept; vendor lock-in avoided
+      - Voice and routine control through existing smart-home platforms
+    features:
+      - id: mobile-control
+        title: One-tap mobile control
+        description: Large open and close actions with live gate status—built for quick use from the driveway.
+      - id: legacy-bridge
+        title: Legacy system bridge
+        description: IoT node parallels the existing remote receiver—same relays, no rip-and-replace.
+      - id: location
+        title: Optional geofence
+        description: Auto-prompt when you arrive home, or manual control only—your choice.
+      - id: smart-home
+        title: Smart-home passthrough
+        description: Expose the gate as a device in Alexa, Apple Home, Google Home, and compatible hubs.
+      - id: activity
+        title: Activity log
+        description: See who opened, when, and from app vs voice vs remote.
+      - id: secure
+        title: Secure access
+        description: Per-user accounts, optional PIN for close, and local fallback if cloud is down.
+    screenshots:
+      - id: mobile-home
+        caption: Garage closed — compact phone with open / close controls
+      - id: mobile-opening
+        caption: Tap open — sectional door rises on a real garage scene
+      - id: mobile-closing
+        caption: Tap close — door lowers; phone shows close command
+      - id: legacy-integration
+        caption: Legacy remote system bridged through IoT node (no motor replacement)
+      - id: smart-home
+        caption: Same node exposed to Alexa, Apple Home, Google Home, and more
+
+  pharma-warehouse-env:
+    id: pharma-warehouse-env
+    productName: PharmaVault Env Monitor
+    clientContext: Pharmaceutical warehouse — validated environmental control
+    title: 3D warehouse temperature map with BMS-integrated HVAC
+    summary: >
+      Custom IoT endpoints built on ESP32 and calibrated temperature sensors—installed
+      throughout a pharmaceutical warehouse to build a live 3D environmental map. Operators
+      monitor every zone on an HMI with real-time trends, automated logging, and compliance
+      reporting. The same data feeds the existing building management system to modulate
+      ventilation and HVAC, trigger building-level alarms, and keep storage within spec.
+    role: Sensor hardware, firmware, HMI, data logging, and BMS integration
+    tech:
+      - ESP32 custom endpoints
+      - Calibrated temp / humidity sensors
+      - Real-time HMI (SCADA-style)
+      - Time-series logging & PDF reporting
+      - BACnet / BMS gateway
+      - 3D zone visualization
+    outcomes:
+      - Full-warehouse visibility instead of single-point thermostat readings
+      - Automated excursion logs for audit and QA review
+      - HVAC and ventilation driven by actual rack-level conditions
+    features:
+      - id: map-3d
+        title: 3D warehouse map
+        description: Isometric floor plan with live per-zone temperature coloring and sensor health.
+      - id: hmi-live
+        title: Real-time HMI
+        description: Operator screen with trends, setpoints, and alarm banners updated every few seconds.
+      - id: sensor-node
+        title: Custom IoT endpoints
+        description: Field-built ESP32 nodes with industrial sensors—installed and commissioned on site.
+      - id: logging-reports
+        title: Logging & reporting
+        description: Continuous history, excursion markers, and scheduled compliance exports.
+      - id: bms-integration
+        title: BMS integration
+        description: Bi-directional link to HVAC, ventilation, and building alarms for closed-loop control.
+    screenshots:
+      - id: map-3d
+        caption: Live 3D warehouse map — temperature zones and sensor positions
+      - id: hmi-live
+        caption: Real-time HMI with trends, setpoints, and active alarms
+      - id: sensor-node
+        caption: Custom ESP32 endpoint — sensor head, enclosure, and field install
+      - id: logging-reports
+        caption: Historical logging with excursion highlights and report export
+      - id: bms-integration
+        caption: IoT layer integrated with existing BMS — HVAC, ventilation, alarms

@@ -1,0 +1,44 @@
+---
+import PortfolioDemoFrame from "./PortfolioDemoFrame.astro";
+import Fm200Demo from "./demos/Fm200Demo.astro";
+import GpsGateDemo from "./demos/GpsGateDemo.astro";
+import CameraPowerDemo from "./demos/CameraPowerDemo.astro";
+import SolidStateDemo from "./demos/SolidStateDemo.astro";
+import HardwareOnlyDemo from "./demos/HardwareOnlyDemo.astro";
+import AnalogIpDemo from "./demos/AnalogIpDemo.astro";
+import RackMonitorDemo from "./demos/RackMonitorDemo.astro";
+import AiAssistantDemo from "./demos/AiAssistantDemo.astro";
+import FieldDataDemo from "./demos/FieldDataDemo.astro";
+import QueuingDemo from "./demos/QueuingDemo.astro";
+import BmsDemo from "./demos/BmsDemo.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const demos: Record<string, typeof Fm200Demo> = {
+  "fm200-panel-upgrade": Fm200Demo,
+  "gps-gate-control": GpsGateDemo,
+  "obsolete-camera-power": CameraPowerDemo,
+  "solid-state-control-upgrade": SolidStateDemo,
+  "dedicated-hardware-control": HardwareOnlyDemo,
+  "analog-to-ip-integration": AnalogIpDemo,
+  "rack-environmental-monitor": RackMonitorDemo,
+  "ai-project-assistant": AiAssistantDemo,
+  "field-data-reporting": FieldDataDemo,
+  "enterprise-queuing": QueuingDemo,
+  "facility-bms-delivery": BmsDemo,
+};
+
+const Demo = demos[id];
+---
+
+{
+  Demo ? (
+    <PortfolioDemoFrame>
+      <Demo />
+    </PortfolioDemoFrame>
+  ) : null
+}

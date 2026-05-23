@@ -1,0 +1,27 @@
+---
+import PmScreenshotDashboard from "./screenshots/PmScreenshotDashboard.astro";
+import PmScreenshotGantt from "./screenshots/PmScreenshotGantt.astro";
+import PmScreenshotFinancials from "./screenshots/PmScreenshotFinancials.astro";
+import PmScreenshotTechnical from "./screenshots/PmScreenshotTechnical.astro";
+import PmScreenshotAi from "./screenshots/PmScreenshotAi.astro";
+import PmScreenshotReports from "./screenshots/PmScreenshotReports.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const map: Record<string, typeof PmScreenshotDashboard> = {
+  dashboard: PmScreenshotDashboard,
+  gantt: PmScreenshotGantt,
+  financials: PmScreenshotFinancials,
+  technical: PmScreenshotTechnical,
+  ai: PmScreenshotAi,
+  reports: PmScreenshotReports,
+};
+
+const Component = map[id];
+---
+
+{Component && <Component />}

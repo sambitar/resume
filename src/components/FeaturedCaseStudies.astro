@@ -1,0 +1,23 @@
+---
+import { flattenProjectLinks } from "../lib/portfolio-tree";
+
+const caseStudies = flattenProjectLinks();
+---
+
+<section class="portfolio-featured" aria-labelledby="featured-heading">
+  <span class="section-label">Featured case studies</span>
+  <h2 id="featured-heading">In-depth product walkthroughs</h2>
+  <p class="portfolio-featured-intro">
+    Full pages with outcomes, capabilities, and simulated product screens—use these
+    when an application asks for portfolio work samples.
+  </p>
+  <div class="portfolio-featured-grid">
+    {caseStudies.map((study) => (
+      <a href={study.href} class="portfolio-featured-card">
+        <h3>{study.label}</h3>
+        {study.tagline && <p class="tagline">{study.tagline}</p>}
+        <span class="cta">View case study →</span>
+      </a>
+    ))}
+  </div>
+</section>

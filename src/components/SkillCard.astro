@@ -1,0 +1,19 @@
+---
+import type { Skill } from "../lib/content";
+
+interface Props {
+  skill: Skill;
+}
+
+const { skill } = Astro.props;
+---
+
+<article class="skill-card" id={skill.id}>
+  <h3>{skill.title}</h3>
+  <p class="summary">{skill.summary}</p>
+  <ul>
+    {skill.competencies.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+</article>

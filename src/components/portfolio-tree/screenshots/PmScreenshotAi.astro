@@ -1,0 +1,43 @@
+---
+import AppWindow from "../AppWindow.astro";
+---
+
+<AppWindow url="app.meridian-pm.io/copilot">
+  <div class="pm-app-shell">
+    <aside class="pm-sidebar">
+      <div class="logo"><span class="logo-mark"></span> Meridian</div>
+      <span class="pm-nav-item active">AI Copilot</span>
+    </aside>
+    <div class="pm-main">
+      <header class="pm-header">
+        <div>
+          <h1>Project copilot</h1>
+          <p class="sub">Answers grounded in live schedule & cost data</p>
+        </div>
+      </header>
+      <div class="pm-ai-layout">
+        <div class="pm-chat">
+          <div class="pm-bubble user">Why is MEP showing late on the dashboard?</div>
+          <div class="pm-bubble ai">
+            MEP rough-in is on the critical path and slipped 6 days vs baseline v3. Committed
+            subcontractor spend is 92% of the work package budget.
+            <span class="cite">Sources: Schedule WBS 4.2 · Cost code MEP-100</span>
+          </div>
+          <div class="pm-bubble user">What’s our burn rate this quarter?</div>
+          <div class="pm-bubble ai">
+            Q2 burn is $1.1M against a planned $980K (112%). Forecast to complete remains under
+            approved budget at $6.1M.
+            <span class="cite">Sources: Financials · Forecast model v2</span>
+          </div>
+        </div>
+        <aside class="pm-ai-sidebar">
+          <h3>Suggested prompts</h3>
+          <p>· List overdue RFIs</p>
+          <p>· Export Q2 executive summary</p>
+          <p>· Show critical path tasks</p>
+          <p style="margin-top:0.5rem;color:var(--pm-muted)">Model: project-tuned RAG</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</AppWindow>

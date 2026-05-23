@@ -1,0 +1,24 @@
+---
+import type { Theme } from "../lib/content";
+
+interface Props {
+  themes: Theme[];
+}
+
+const { themes } = Astro.props;
+---
+
+<section class="themes-section" aria-labelledby="themes-heading">
+  <div class="container">
+    <span class="section-label">Approach</span>
+    <h2 id="themes-heading">How work gets done</h2>
+    <div class="theme-grid">
+      {themes.map((theme) => (
+        <article class="theme-item">
+          <h3>{theme.title}</h3>
+          <p>{theme.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

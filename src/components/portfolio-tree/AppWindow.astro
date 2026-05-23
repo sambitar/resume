@@ -1,0 +1,19 @@
+---
+interface Props {
+  url?: string;
+}
+
+const { url = "app.meridian-pm.io" } = Astro.props;
+---
+
+<div class="app-window">
+  <div class="app-titlebar">
+    <div class="dots" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="url">{url}</div>
+  </div>
+  <div class="pm-app">
+    <slot />
+  </div>
+</div>

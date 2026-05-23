@@ -1,0 +1,29 @@
+<svg class="demo-svg demo-analog-ip" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" fill="#0c0f14" />
+  <!-- Analog side -->
+  <g transform="translate(24, 70)">
+    <text x="40" y="-8" text-anchor="middle" fill="#9aa8bc" font-size="8" font-family="IBM Plex Mono, monospace">ANALOG</text>
+    <rect x="0" y="0" width="80" height="60" rx="6" fill="#1a2230" stroke="#9aa8bc" stroke-width="1.5" />
+    <path class="analog-wave" d="M10 40 Q20 20 30 40 T50 40 T70 40" stroke="#9aa8bc" stroke-width="2" fill="none" />
+  </g>
+  <!-- Bridge -->
+  <g transform="translate(128, 65)">
+    <rect x="0" y="0" width="64" height="70" rx="6" fill="#1a2230" stroke="#3d9eff" stroke-width="1.5" class="bridge-box" />
+    <text x="32" y="22" text-anchor="middle" fill="#3d9eff" font-size="8" font-family="IBM Plex Mono, monospace">GATEWAY</text>
+    <rect x="12" y="32" width="40" height="8" rx="2" fill="#2563a8" />
+    <rect x="12" y="46" width="40" height="8" rx="2" fill="#3d9eff" opacity="0.5" class="bridge-packet" />
+  </g>
+  <!-- IP side -->
+  <g transform="translate(216, 55)">
+    <text x="40" y="8" text-anchor="middle" fill="#9aa8bc" font-size="8" font-family="IBM Plex Mono, monospace">TCP/IP</text>
+    <rect x="0" y="16" width="80" height="70" rx="6" fill="#1a2230" stroke="#3d9eff" stroke-width="1.5" />
+    <g class="net-node n1" style="transform-origin: 20px 40px"><circle cx="20" cy="40" r="5" fill="#3d9eff" /></g>
+    <g class="net-node n2" style="transform-origin: 40px 55px"><circle cx="40" cy="55" r="5" fill="#3d9eff" /></g>
+    <g class="net-node n3" style="transform-origin: 60px 38px"><circle cx="60" cy="38" r="5" fill="#3d9eff" /></g>
+    <line x1="20" y1="40" x2="40" y2="55" stroke="#3d9eff" stroke-width="1" opacity="0.6" />
+    <line x1="40" y1="55" x2="60" y2="38" stroke="#3d9eff" stroke-width="1" opacity="0.6" />
+    <line x1="20" y1="40" x2="60" y2="38" stroke="#3d9eff" stroke-width="1" opacity="0.4" />
+  </g>
+  <path class="data-flow-left" d="M104 100 L128 100" stroke="#9aa8bc" stroke-width="1.5" stroke-dasharray="4 3" />
+  <path class="data-flow-right" d="M192 100 L216 100" stroke="#3d9eff" stroke-width="1.5" stroke-dasharray="4 3" />
+</svg>

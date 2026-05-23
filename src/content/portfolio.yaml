@@ -1,0 +1,173 @@
+hero:
+  headline: Selected work
+  subheadline: >
+    Representative projects across integration, controls, IoT, data, and
+    purpose-built software—described by outcome, not employer.
+
+projects:
+  - id: fm200-panel-upgrade
+    title: Life-safety panel upgrade
+    summary: >
+      Extended a conventional four-zone fire alarm panel with FM200 extinguishing
+      control on the existing install. The retrofit added new life-safety capability
+      without replacing the full panel or rewiring the site.
+    tech:
+      - Conventional fire panel
+      - FM200 control
+      - Zone retrofit wiring
+    outcome: New extinguishing control on a legacy four-zone panel—no full replacement.
+    tags:
+      - rd-hardware
+      - low-voltage-security
+
+  - id: gps-gate-control
+    title: GPS and mobile gate control
+    summary: >
+      Replaced physical key fobs for remote-controlled gates with location-based
+      access through GPS geofencing and a mobile app. End users open gates from
+      their phone when inside an authorized zone.
+    tech:
+      - GPS geofencing
+      - Mobile app
+      - Gate controller retrofit
+    outcome: Keyless gate access with location-based authorization on existing hardware.
+    caseStudy: gate-smart-access
+    tags:
+      - rd-hardware
+      - software-dashboards
+
+  - id: obsolete-camera-power
+    title: Custom power for discontinued cameras
+    summary: >
+      Designed replacement power supplies for 12 V AC cameras whose OEM units had
+      failed and were no longer available. Field units were restored without
+      replacing cameras or re-cabling the install.
+    tech:
+      - 12 V AC power design
+      - Obsolete equipment support
+      - Field electrical retrofit
+    outcome: Discontinued cameras brought back online with custom-built supplies.
+    tags:
+      - rd-hardware
+      - low-voltage-security
+
+  - id: solid-state-control-upgrade
+    title: Relay-to-solid-state modernization
+    summary: >
+      Converted aging relay-based control paths to solid-state switching across
+      long-running installations. The upgrade removed mechanical wear points while
+      keeping compatibility with existing control logic.
+    tech:
+      - Relay systems
+      - Solid-state switching
+      - Legacy control logic
+    outcome: Fewer mechanical failures on control paths that had run for years.
+    tags:
+      - rd-hardware
+      - systems-integration
+
+  - id: dedicated-hardware-control
+    title: Software-free control path
+    summary: >
+      Replaced a software-dependent control function with dedicated hardware logic—no
+      microprocessor and no PC in the loop. The design removed latency, application
+      bugs, and workstation failures from a critical control path.
+    tech:
+      - Discrete hardware logic
+      - No microprocessor
+      - Critical control path
+    outcome: Install-and-forget control with no PC or application layer in the chain.
+    tags:
+      - rd-hardware
+      - systems-integration
+
+  - id: analog-to-ip-integration
+    title: Legacy analog to TCP/IP integration
+    summary: >
+      Connected older analog subsystems to modern TCP/IP equipment through a custom
+      gateway and protocol layer. Mixed-vendor devices operate as one system instead
+      of isolated islands of technology.
+    tech:
+      - Analog interfaces
+      - TCP/IP gateway
+      - Custom protocol
+    outcome: One operational view across analog and network devices—minimal rip-and-replace.
+    tags:
+      - systems-integration
+
+  - id: rack-environmental-monitor
+    title: Rack cabinet environmental monitoring
+    summary: >
+      Built cabinet-mounted hardware to read temperature and humidity at multiple
+      points inside server racks. The system ties into external alarms and notification
+      APIs so staff receive SMS and email when thresholds are exceeded.
+    tech:
+      - Multi-point sensors
+      - REST APIs
+      - SMS / email alerts
+      - Rack-mounted hardware
+    outcome: Proactive environmental alerts before equipment damage in the cabinet.
+    tags:
+      - iot-edge
+      - software-dashboards
+
+  - id: ai-project-assistant
+    title: AI assistant for project operations
+    summary: >
+      Integrated an AI layer into project management workflows so users ask
+      natural-language questions about project status, scope, and financials. Answers
+      are grounded in structured project and budget data—not generic chat.
+    tech:
+      - LLM integration
+      - Project data backend
+      - Natural-language Q&A
+    outcome: Instant answers on project health and spend without manual report digging.
+    caseStudy: meridian-pm
+    tags:
+      - software-dashboards
+
+  - id: field-data-reporting
+    title: Field data and program reporting
+    summary: >
+      Delivered end-to-end field data workflows for international development programs:
+      surveying, analysis, visualization, and recurring quarterly and annual reports.
+      Pipelines used R, Python, and Excel depending on the deliverable.
+    tech:
+      - R
+      - Python
+      - Excel
+      - Data visualization
+    outcome: Reliable recurring reports from raw field collection to stakeholder-ready output.
+    tags:
+      - data-reporting
+
+  - id: enterprise-queuing
+    title: Enterprise queuing deployments
+    summary: >
+      Led installation, commissioning, configuration, and maintenance of enterprise
+      queuing systems for banks and public institutions. Work included technician
+      coordination and tuning for high-traffic branch environments.
+    tech:
+      - Enterprise queuing platform
+      - Branch commissioning
+      - Workflow configuration
+    outcome: Queuing systems running reliably under peak customer traffic.
+    tags:
+      - queuing-operations
+      - low-voltage-security
+
+  - id: facility-bms-delivery
+    title: Multi-trade facility and BMS projects
+    summary: >
+      Managed low-voltage projects combining security, life-safety, and building
+      management systems on single sites. Coordinated trades so BMS platforms,
+      access, CCTV, and fire systems worked together through commissioning and handover.
+    tech:
+      - Building management systems
+      - Life-safety integration
+      - Multi-trade project delivery
+    outcome: Facility systems commissioned as one coordinated operational stack.
+    caseStudy: pharma-warehouse-env
+    tags:
+      - facility-bms
+      - systems-integration

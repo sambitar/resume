@@ -1,0 +1,59 @@
+---
+import AppWindow from "../AppWindow.astro";
+---
+
+<AppWindow url="app.meridian-pm.io/schedule/gantt">
+  <div class="pm-app-shell">
+    <aside class="pm-sidebar">
+      <div class="logo"><span class="logo-mark"></span> Meridian</div>
+      <span class="pm-nav-item">Dashboard</span>
+      <span class="pm-nav-item">Projects</span>
+      <span class="pm-nav-item active">Schedule</span>
+      <span class="pm-nav-item">Financials</span>
+    </aside>
+    <div class="pm-main">
+      <header class="pm-header">
+        <div>
+          <h1>Gantt — West Campus</h1>
+          <p class="sub">Baseline v3 · Critical path highlighted</p>
+        </div>
+        <span class="pm-pill risk">Critical: 3 tasks</span>
+      </header>
+      <div class="pm-panel pm-gantt">
+        <div class="pm-gantt-header">
+          <span></span>
+          <span>W1</span><span>W2</span><span>W3</span><span>W4</span>
+          <span>W5</span><span>W6</span><span>W7</span><span>W8</span>
+        </div>
+        <div class="pm-gantt-row">
+          <span class="task-name">Site mobilization</span>
+          <div class="pm-gantt-track" style="position:relative">
+            <span class="pm-gantt-bar" style="left:0%;width:25%"></span>
+          </div>
+        </div>
+        <div class="pm-gantt-row">
+          <span class="task-name">Foundation & structure</span>
+          <div class="pm-gantt-track" style="position:relative">
+            <span class="pm-gantt-bar baseline" style="left:12%;width:40%"></span>
+            <span class="pm-gantt-bar critical" style="left:15%;width:45%"></span>
+          </div>
+        </div>
+        <div class="pm-gantt-row">
+          <span class="task-name">MEP rough-in</span>
+          <div class="pm-gantt-track" style="position:relative">
+            <span class="pm-gantt-bar critical" style="left:45%;width:35%"></span>
+          </div>
+        </div>
+        <div class="pm-gantt-row">
+          <span class="task-name">Commissioning</span>
+          <div class="pm-gantt-track" style="position:relative">
+            <span class="pm-gantt-bar" style="left:70%;width:28%"></span>
+          </div>
+        </div>
+        <p style="margin:0.5rem 0 0;font-size:9px;color:var(--pm-muted)">
+          Drag bars to reschedule · Dependencies auto-shift successors
+        </p>
+      </div>
+    </div>
+  </div>
+</AppWindow>

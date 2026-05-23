@@ -1,0 +1,41 @@
+profile:
+  name: Reshd Bitar
+  givenName: Reshd
+  familyName: Bitar
+  email: reshd@usa.com
+
+hero:
+  headline: Integration, controls, and data—built to work in the field.
+  subheadline: >
+    Capabilities across systems integration, low-voltage and facility technology,
+    IoT, data, and purpose-built software—focused on reliability and practical delivery.
+
+themes:
+  - id: integration-first
+    title: Integration-first
+    description: >
+      Bridge legacy analog and modern network systems without unnecessary
+      rip-and-replace—design for interoperability and a single operational picture.
+
+  - id: simplify-reliability
+    title: Simplify for reliability
+    description: >
+      Prefer straightforward architectures over over-engineered stacks; use dedicated
+      hardware where it removes failure modes such as latency, PC dependency, and
+      ongoing software support burden.
+
+  - id: pragmatic-software
+    title: Pragmatic software
+    description: >
+      Build scripts, backends, dashboards, and AI-assisted tools when they fit the
+      problem—strong solo delivery for data, control, and integration, with honest
+      scope about large product-team engineering.
+
+  - id: field-to-rack
+    title: Field to rack
+    description: >
+      From installation and commissioning in the field to R&D retrofits and rack-level
+      monitoring with external alarms and notification APIs—end-to-end operational thinking.
+
+footer:
+  note: Available for integration, controls, and software projects.

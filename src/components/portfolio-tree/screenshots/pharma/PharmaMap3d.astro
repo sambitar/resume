@@ -1,0 +1,124 @@
+---
+import PharmaHmiFrame from "../../PharmaHmiFrame.astro";
+---
+
+<PharmaHmiFrame title="PharmaVault — 3D Zone Map">
+  <div class="pharma-shell">
+    <nav class="pharma-sidebar" aria-hidden="true">
+      <span class="nav-item active">3D Map</span>
+      <span class="nav-item">Live HMI</span>
+      <span class="nav-item">Reports</span>
+      <span class="nav-item">Alarms</span>
+    </nav>
+    <div class="pharma-main">
+      <div class="pharma-alarm-bar">
+        <span class="pharma-pill ok">12 sensors online</span>
+        <span class="pharma-pill warn">Zone C +0.8°C</span>
+      </div>
+      <div class="pharma-map-wrap">
+        <svg class="pharma-map-svg" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="heatBlur" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur" />
+              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1.2 0" />
+            </filter>
+            <!-- Per-sensor heat blobs: green (cool) → red (warm) -->
+            <radialGradient id="heatCool" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#22c55e" stop-opacity="0.95" />
+              <stop offset="55%" stop-color="#4ade80" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="heatMid" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#eab308" stop-opacity="0.9" />
+              <stop offset="55%" stop-color="#facc15" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="#eab308" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="heatWarm" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f97316" stop-opacity="0.95" />
+              <stop offset="55%" stop-color="#fb923c" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="#f97316" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="heatHot" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#dc2626" stop-opacity="0.95" />
+              <stop offset="55%" stop-color="#ef4444" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#dc2626" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="tempScaleBar" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#16a34a" />
+              <stop offset="25%" stop-color="#84cc16" />
+              <stop offset="50%" stop-color="#eab308" />
+              <stop offset="75%" stop-color="#f97316" />
+              <stop offset="100%" stop-color="#dc2626" />
+            </linearGradient>
+          </defs>
+
+          <rect width="420" height="220" fill="#f8fafc" />
+
+          <g transform="translate(60, 40)">
+            <clipPath id="floorTopLocal">
+              <polygon points="0,80 150,20 300,80 150,140" />
+            </clipPath>
+            <!-- Floor sides (neutral) -->
+            <polygon points="0,80 0,130 150,190 150,140" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1" />
+            <polygon points="150,140 150,190 300,130 300,80" fill="#d1d5db" stroke="#94a3b8" stroke-width="1" />
+
+            <!-- Temperature heatmap on floor surface -->
+            <g clip-path="url(#floorTopLocal)" filter="url(#heatBlur)" class="pharma-heat-layer">
+              <circle cx="55" cy="80" r="52" fill="url(#heatCool)" />
+              <circle cx="120" cy="75" r="48" fill="url(#heatMid)" />
+              <circle cx="185" cy="82" r="50" fill="url(#heatWarm)" />
+              <circle cx="240" cy="78" r="55" fill="url(#heatHot)" />
+              <circle cx="95" cy="110" r="45" fill="url(#heatMid)" />
+              <circle cx="160" cy="105" r="42" fill="url(#heatCool)" />
+              <circle cx="210" cy="115" r="48" fill="url(#heatHot)" />
+              <circle cx="70" cy="95" r="38" fill="url(#heatCool)" />
+            </g>
+
+            <!-- Floor top outline + subtle tint -->
+            <polygon
+              class="floor-top"
+              points="0,80 150,20 300,80 150,140"
+              fill="rgba(255,255,255,0.08)"
+              stroke="#64748b"
+              stroke-width="1.2"
+            />
+
+            <!-- Racks -->
+            <g opacity="0.55" fill="#475569">
+              <rect x="30" y="55" width="35" height="50" transform="skewY(-15)" />
+              <rect x="80" y="45" width="35" height="50" transform="skewY(-15)" />
+              <rect x="130" y="55" width="35" height="50" transform="skewY(-15)" />
+              <rect x="180" y="48" width="35" height="50" transform="skewY(-15)" />
+            </g>
+
+            <!-- Sensors -->
+            <circle class="sensor-dot s1" cx="55" cy="75" r="5" fill="#fff" stroke="#0f766e" stroke-width="2" />
+            <circle class="sensor-dot s2" cx="120" cy="70" r="5" fill="#fff" stroke="#0f766e" stroke-width="2" />
+            <circle class="sensor-dot s3" cx="185" cy="78" r="5" fill="#fff" stroke="#0f766e" stroke-width="2" />
+            <circle class="sensor-dot s4" cx="95" cy="105" r="5" fill="#fff" stroke="#0f766e" stroke-width="2" />
+            <circle class="sensor-dot s5" cx="200" cy="100" r="5" fill="#fff" stroke="#b91c1c" stroke-width="2" />
+            <circle class="sensor-dot" cx="250" cy="88" r="5" fill="#fff" stroke="#0f766e" stroke-width="2" />
+
+            <text x="55" y="66" font-size="8" fill="#14532d" text-anchor="middle" font-weight="600">18.2°</text>
+            <text x="120" y="62" font-size="8" fill="#713f12" text-anchor="middle" font-weight="600">19.6°</text>
+            <text x="200" y="92" font-size="8" fill="#7f1d1d" text-anchor="middle" font-weight="700">21.4°</text>
+          </g>
+
+          <text x="210" y="205" text-anchor="middle" font-size="9" fill="#0f766e" font-family="DM Sans, sans-serif">
+            Isometric heatmap · 12 ESP32 nodes · Updated 3s ago
+          </text>
+        </svg>
+        <div class="pharma-map-legend pharma-map-legend--gradient">
+          <span class="legend-gradient-bar" aria-hidden="true"></span>
+          <span class="legend-temp-labels">
+            <span>17°C cool</span>
+            <span>22°C warm</span>
+          </span>
+          <span class="legend-sensor">
+            <i class="legend-sensor-dot"></i> Sensor node
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</PharmaHmiFrame>

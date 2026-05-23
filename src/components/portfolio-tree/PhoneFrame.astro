@@ -1,0 +1,22 @@
+---
+interface Props {
+  label?: string;
+  compact?: boolean;
+}
+
+const { label = "GateLink", compact = false } = Astro.props;
+---
+
+<div class:list={["phone-frame", { "phone-frame--compact": compact }]}>
+  <div class="phone-bezel">
+    <div class:list={["phone-notch", { "phone-notch--compact": compact }]} aria-hidden="true"></div>
+    <div class="phone-screen gate-app">
+      <div class="gate-status-bar">
+        <span>9:41</span>
+        <span>{label}</span>
+        <span>{compact ? "▮▮▮" : "100%"}</span>
+      </div>
+      <slot />
+    </div>
+  </div>
+</div>

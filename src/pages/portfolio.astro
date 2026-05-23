@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import ProfileName from "../components/ProfileName.astro";
+import ProfilePortrait from "../components/ProfilePortrait.astro";
+import FeaturedCaseStudies from "../components/FeaturedCaseStudies.astro";
+import PortfolioGrid from "../components/PortfolioGrid.astro";
+import { pageTitle, portfolio } from "../lib/content";
+---
+
+<BaseLayout
+  title={pageTitle("Portfolio")}
+  description={portfolio.hero.subheadline}
+>
+  <SiteNav active="portfolio" />
+
+  <header class="site-header site-header-compact site-header--with-portrait">
+    <div class="container hero-layout hero-layout--compact">
+      <ProfilePortrait size="compact" />
+      <div class="hero-copy">
+        <ProfileName variant="compact" />
+        <span class="section-label">Work</span>
+        <h1>{portfolio.hero.headline}</h1>
+        <p class="subheadline">{portfolio.hero.subheadline}</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="portfolio-section" aria-labelledby="featured-heading">
+      <div class="container">
+        <FeaturedCaseStudies />
+      </div>
+    </section>
+
+    <section class="portfolio-section" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <span class="section-label">All projects</span>
+        <h2 id="portfolio-heading" class="sr-only">Project list</h2>
+        <PortfolioGrid projects={portfolio.projects} />
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

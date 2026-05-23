@@ -1,0 +1,681 @@
+/* GateLink — consumer mobile & integration diagrams */
+
+.gate-app {
+  --gate-bg: #0f172a;
+  --gate-surface: #1e293b;
+  --gate-card: #334155;
+  --gate-text: #f8fafc;
+  --gate-muted: #94a3b8;
+  --gate-open: #22c55e;
+  --gate-open-dim: #166534;
+  --gate-close: #ef4444;
+  --gate-accent: #38bdf8;
+  --gate-font: "DM Sans", system-ui, sans-serif;
+  font-family: var(--gate-font);
+  color: var(--gate-text);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Phone + garage side-by-side demo */
+.gate-mobile-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(165deg, #1e293b 0%, #0f172a 50%, #1a1a2e 100%);
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 520px) {
+  .gate-mobile-demo {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+}
+
+.gate-mobile-demo__garage {
+  flex: 1;
+  width: 100%;
+  max-width: 420px;
+  min-width: 0;
+}
+
+.gate-mobile-demo__phone {
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+/* Realistic garage SVG scene */
+.garage-scene {
+  position: relative;
+  width: 100%;
+}
+
+.garage-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.garage-door {
+  transform-origin: 200px 198px;
+  transition: transform 0.05s linear;
+}
+
+.garage-scene--closed .garage-door {
+  transform: translateY(0);
+}
+
+.garage-scene--open .garage-door {
+  transform: translateY(-82px);
+}
+
+.garage-scene--opening .garage-door {
+  animation: garage-door-open 2.8s ease-in-out infinite;
+}
+
+.garage-scene--closing .garage-door {
+  animation: garage-door-close 2.8s ease-in-out infinite;
+}
+
+.garage-scene--cycle .garage-door {
+  animation: garage-door-cycle 6s ease-in-out infinite;
+}
+
+.garage-scene--closed .garage-interior,
+.garage-scene--closing .garage-interior {
+  opacity: 0.35;
+}
+
+.garage-scene--opening .garage-interior,
+.garage-scene--open .garage-interior {
+  opacity: 1;
+}
+
+.garage-interior {
+  transition: opacity 0.3s ease;
+}
+
+.garage-scene--opening .garage-motion-hint path:first-child,
+.garage-scene--open .garage-motion-hint path:first-child {
+  opacity: 1;
+  animation: hint-bounce-up 1.2s ease-in-out infinite;
+}
+
+.garage-scene--closing .garage-motion-hint .hint-close {
+  opacity: 1;
+  animation: hint-bounce-down 1.2s ease-in-out infinite;
+}
+
+.garage-scene-label {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-family: var(--gate-font);
+}
+
+.garage-scene--closed .garage-scene-label::after { content: "Door closed"; }
+.garage-scene--opening .garage-scene-label::after { content: "Opening…"; color: #4ade80; }
+.garage-scene--open .garage-scene-label::after { content: "Door open"; color: #4ade80; }
+.garage-scene--closing .garage-scene-label::after { content: "Closing…"; color: #f87171; }
+
+@keyframes garage-door-open {
+  0%, 100% { transform: translateY(0); }
+  45%, 55% { transform: translateY(-82px); }
+}
+
+@keyframes garage-door-close {
+  0%, 100% { transform: translateY(-82px); }
+  45%, 55% { transform: translateY(0); }
+}
+
+@keyframes garage-door-cycle {
+  0%, 100% { transform: translateY(0); }
+  40%, 50% { transform: translateY(-82px); }
+}
+
+@keyframes hint-bounce-up {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
+
+@keyframes hint-bounce-down {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+
+/* Compact phone */
+.phone-frame {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-frame--compact {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.phone-frame--compact .phone-bezel {
+  width: 150px;
+  padding: 8px 7px 10px;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 0 0 2px #333,
+    0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.phone-frame:not(.phone-frame--compact) {
+  padding: 1rem;
+  background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.phone-bezel {
+  width: min(100%, 220px);
+  padding: 10px 8px 12px;
+  background: #0a0a0a;
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 2px #333;
+}
+
+.phone-notch {
+  width: 72px;
+  height: 22px;
+  margin: 0 auto 6px;
+  background: #0a0a0a;
+  border-radius: 0 0 14px 14px;
+}
+
+.phone-screen {
+  min-height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--gate-bg);
+}
+
+.phone-frame--compact .phone-screen {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  min-height: unset;
+  border-radius: 16px;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.phone-notch--compact {
+  width: 52px;
+  height: 14px;
+  margin: 0 auto 5px;
+  border-radius: 0 0 10px 10px;
+}
+
+.phone-frame--compact .gate-app-header--compact,
+.phone-frame--compact .gate-mini-status,
+.phone-frame--compact .gate-mini-toast {
+  flex-shrink: 0;
+}
+
+.phone-frame--compact .gate-actions--compact {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.phone-frame--compact .gate-status-bar {
+  padding: 4px 8px 2px;
+  font-size: 8px;
+}
+
+.phone-frame--compact .gate-app-header--compact {
+  padding: 6px 10px 4px;
+}
+
+.phone-frame--compact .gate-app-header--compact h2 {
+  font-size: 12px;
+}
+
+.phone-frame--compact .gate-app-header--compact p {
+  font-size: 8px;
+}
+
+.gate-mini-status {
+  margin: 4px 8px;
+  padding: 4px 6px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 6px;
+  background: var(--gate-surface);
+}
+
+.gate-mini-status.closed { color: var(--gate-accent); }
+.gate-mini-status.opening { color: var(--gate-open); animation: gate-pulse 1s ease-in-out infinite; }
+.gate-mini-status.closing { color: var(--gate-close); animation: gate-pulse 1s ease-in-out infinite; }
+
+.gate-mini-toast {
+  margin: 2px 8px;
+  padding: 3px 6px;
+  font-size: 7px;
+  text-align: center;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid var(--gate-open);
+  border-radius: 6px;
+  color: #86efac;
+}
+
+.gate-mini-toast--close {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--gate-close);
+  color: #fca5a5;
+}
+
+.gate-actions--compact {
+  padding: 0 6px 8px;
+  gap: 4px;
+}
+
+.phone-frame--compact .gate-btn,
+.gate-btn--sm {
+  flex-direction: row;
+  gap: 3px;
+  padding: 5px 4px;
+  font-size: 8px;
+  font-weight: 600;
+  border-radius: 6px;
+  line-height: 1.2;
+}
+
+.phone-frame--compact .gate-btn-open,
+.gate-btn--sm.gate-btn-open {
+  box-shadow: 0 1px 6px rgba(34, 197, 94, 0.35);
+}
+
+.phone-frame--compact .gate-btn-close,
+.gate-btn--sm.gate-btn-close {
+  border-width: 1px;
+}
+
+.phone-frame--compact .gate-btn-icon,
+.gate-btn--sm .gate-btn-icon {
+  font-size: 10px;
+}
+
+.gate-status-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 14px 4px;
+  font-size: 10px;
+  color: var(--gate-muted);
+}
+
+.gate-app-header {
+  padding: 12px 16px 8px;
+}
+
+.gate-app-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.gate-app-header p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--gate-muted);
+}
+
+.gate-status-card {
+  margin: 8px 16px 16px;
+  padding: 16px;
+  text-align: center;
+  background: var(--gate-surface);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gate-status-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: var(--gate-card);
+}
+
+.gate-status-card.closed .gate-status-icon {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--gate-accent);
+}
+
+.gate-status-card.opening .gate-status-icon {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--gate-open);
+  animation: gate-pulse 1s ease-in-out infinite;
+}
+
+.gate-status-card .status-label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.gate-status-card .status-sub {
+  font-size: 11px;
+  color: var(--gate-muted);
+  margin-top: 4px;
+}
+
+.gate-visual {
+  margin: 12px auto;
+  width: 120px;
+  height: 64px;
+  position: relative;
+}
+
+.gate-frame {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  border: 2px solid var(--gate-muted);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.gate-bar {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  right: 4px;
+  height: 42px;
+  background: repeating-linear-gradient(
+    0deg,
+    var(--gate-card) 0px,
+    var(--gate-card) 6px,
+    #475569 6px,
+    #475569 8px
+  );
+  border-radius: 2px;
+  transform-origin: bottom center;
+  transition: transform 0.6s ease;
+}
+
+.gate-status-card.opening .gate-bar,
+.gate-status-card.open .gate-bar {
+  transform: scaleY(0.15);
+}
+
+.gate-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 16px 20px;
+}
+
+.gate-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 18px 12px;
+  border: none;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: default;
+  color: #fff;
+}
+
+.gate-btn-open {
+  background: linear-gradient(180deg, #4ade80 0%, var(--gate-open) 100%);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+}
+
+.gate-btn-open.pressed {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.5);
+  filter: brightness(1.1);
+}
+
+.gate-btn-close {
+  background: var(--gate-surface);
+  border: 2px solid var(--gate-close);
+  color: var(--gate-close);
+}
+
+.gate-btn-close.pressed {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.gate-btn-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.gate-toast {
+  margin: 0 16px 12px;
+  padding: 10px 14px;
+  font-size: 11px;
+  text-align: center;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid var(--gate-open);
+  border-radius: 10px;
+  color: #86efac;
+  animation: gate-toast-in 0.4s ease;
+}
+
+.gate-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 9px;
+  color: var(--gate-muted);
+}
+
+.gate-nav span.active {
+  color: var(--gate-accent);
+}
+
+/* Integration diagram (desktop-style panel) */
+.integration-frame {
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.1);
+}
+
+.integration-frame .frame-title {
+  margin: 0 0 0.75rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--gate-font);
+}
+
+.integration-diagram {
+  font-family: var(--gate-font);
+  font-size: 10px;
+  color: #1e293b;
+}
+
+.int-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.int-box {
+  padding: 0.5rem 0.65rem;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  min-width: 72px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.int-box.legacy {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+}
+
+.int-box.iot {
+  border-color: #38bdf8;
+  background: #f0f9ff;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+  animation: gate-iot-glow 2s ease-in-out infinite;
+}
+
+.int-box.motor {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.int-box.voice {
+  border-color: #c4b5fd;
+  background: #f5f3ff;
+}
+
+.int-box .icon {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.int-arrow {
+  color: #94a3b8;
+  font-size: 14px;
+  flex-shrink: 0;
+  animation: gate-flow 1.2s ease-in-out infinite;
+}
+
+.int-arrow.delay {
+  animation-delay: 0.4s;
+}
+
+.int-label {
+  display: block;
+  font-size: 8px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.int-cloud {
+  margin: 0.5rem auto;
+  padding: 0.35rem 1rem;
+  text-align: center;
+  font-size: 9px;
+  color: #0369a1;
+  background: #e0f2fe;
+  border: 1px dashed #38bdf8;
+  border-radius: 99px;
+  max-width: 200px;
+}
+
+.smart-home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.smart-home-grid .int-box {
+  min-width: 0;
+  padding: 0.65rem 0.4rem;
+}
+
+.int-hub {
+  margin: 0.75rem auto;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  max-width: 160px;
+  background: linear-gradient(135deg, #0ea5e9, #0369a1);
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 11px;
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.35);
+}
+
+.int-connectors {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.int-line {
+  width: 2px;
+  height: 20px;
+  background: #cbd5e1;
+  margin: 0 auto;
+}
+
+@keyframes gate-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes gate-toast-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gate-iot-glow {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2); }
+  50% { box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.45); }
+}
+
+@keyframes gate-flow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-app *,
+  .integration-diagram *,
+  .garage-door,
+  .garage-motion-hint * {
+    animation: none !important;
+  }
+
+  .garage-scene--opening .garage-door {
+    transform: translateY(-40px);
+  }
+
+  .garage-scene--closing .garage-door {
+    transform: translateY(-40px);
+  }
+}

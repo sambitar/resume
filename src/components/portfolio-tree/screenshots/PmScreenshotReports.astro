@@ -1,0 +1,48 @@
+---
+import AppWindow from "../AppWindow.astro";
+---
+
+<AppWindow url="app.meridian-pm.io/reports/studio">
+  <div class="pm-app-shell">
+    <aside class="pm-sidebar">
+      <div class="logo"><span class="logo-mark"></span> Meridian</div>
+      <span class="pm-nav-item active">Reports</span>
+    </aside>
+    <div class="pm-main">
+      <header class="pm-header">
+        <div>
+          <h1>Reporting studio</h1>
+          <p class="sub">Quarterly pack · Custom charts · PDF export</p>
+        </div>
+        <span class="pm-pill ok">Ready to export</span>
+      </header>
+      <div class="pm-grid-2">
+        <div class="pm-panel">
+          <h2>Templates</h2>
+          <table class="pm-table">
+            <tbody>
+              <tr><td>Executive quarterly</td><td><span class="pm-pill ok">Active</span></td></tr>
+              <tr><td>Donor / stakeholder brief</td><td>Draft</td></tr>
+              <tr><td>Technical status memo</td><td>Scheduled</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pm-report-page">
+          <h2>Q2 2026 — West Campus</h2>
+          <p class="meta">Generated 14 May 2026 · 12 pages</p>
+          <div class="pm-donut-row">
+            <div class="pm-donut" aria-hidden="true"></div>
+            <div>
+              <p><strong>68%</strong> budget consumed</p>
+              <p style="font-size:9px;color:var(--pm-muted)">SPI 0.94 · 2 active risks</p>
+            </div>
+          </div>
+          <div class="pm-bars" style="margin-top:0.75rem;height:40px" aria-hidden="true">
+            <span style="height:50%"></span><span style="height:65%"></span><span style="height:58%"></span>
+            <span style="height:72%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</AppWindow>

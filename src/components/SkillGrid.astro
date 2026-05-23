@@ -1,0 +1,16 @@
+---
+import type { Skill } from "../lib/content";
+import SkillCard from "./SkillCard.astro";
+
+interface Props {
+  skills: Skill[];
+}
+
+const { skills } = Astro.props;
+---
+
+<div class="skill-grid">
+  {skills.map((skill) => (
+    <SkillCard skill={skill} />
+  ))}
+</div>

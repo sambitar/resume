@@ -1,0 +1,42 @@
+---
+import AppWindow from "../AppWindow.astro";
+---
+
+<AppWindow url="app.meridian-pm.io/technical">
+  <div class="pm-app-shell">
+    <aside class="pm-sidebar">
+      <div class="logo"><span class="logo-mark"></span> Meridian</div>
+      <span class="pm-nav-item active">Technical</span>
+    </aside>
+    <div class="pm-main">
+      <header class="pm-header">
+        <div>
+          <h1>Technical deliverables</h1>
+          <p class="sub">Phase 2 — Design & submittals</p>
+        </div>
+        <span class="pm-pill warn">Gate review Fri</span>
+      </header>
+      <div class="pm-grid-2">
+        <div class="pm-panel">
+          <h2>Milestone gate</h2>
+          <ul class="pm-checklist">
+            <li><span class="pm-check done"></span> Structural calcs approved</li>
+            <li><span class="pm-check done"></span> MEP schematic design</li>
+            <li><span class="pm-check"></span> Fire strategy sign-off</li>
+            <li><span class="pm-check"></span> IT room layout frozen</li>
+          </ul>
+        </div>
+        <div class="pm-panel">
+          <h2>Open items</h2>
+          <table class="pm-table">
+            <tbody>
+              <tr><td>RFI-142</td><td>Facade anchor detail</td><td><span class="pm-pill warn">Open</span></td></tr>
+              <tr><td>SUB-089</td><td>Generator spec</td><td><span class="pm-pill ok">Approved</span></td></tr>
+              <tr><td>RFI-138</td><td>Raised floor load</td><td><span class="pm-pill risk">Overdue</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</AppWindow>

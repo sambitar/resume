@@ -1,0 +1,43 @@
+---
+import PharmaHmiFrame from "../../PharmaHmiFrame.astro";
+---
+
+<PharmaHmiFrame title="PharmaVault HMI — Live monitoring">
+  <div class="pharma-shell">
+    <nav class="pharma-sidebar" aria-hidden="true">
+      <span class="nav-item">3D Map</span>
+      <span class="nav-item active">Live HMI</span>
+      <span class="nav-item">Reports</span>
+      <span class="nav-item">Alarms</span>
+    </nav>
+    <div class="pharma-main">
+      <div class="pharma-alarm-bar">
+        <span class="pharma-pill alarm">ALM: Zone C temp high</span>
+        <span class="pharma-pill ok">BMS: Vent boost active</span>
+        <span class="pharma-pill warn">Logging · 1 Hz</span>
+      </div>
+      <div class="pharma-kpi-row">
+        <div class="pharma-kpi"><div class="lbl">Warehouse avg</div><div class="val">19.4°C</div></div>
+        <div class="pharma-kpi"><div class="lbl">Setpoint</div><div class="val">20.0°C</div></div>
+        <div class="pharma-kpi"><div class="lbl">Humidity</div><div class="val">45% RH</div></div>
+        <div class="pharma-kpi"><div class="lbl">Sensors</div><div class="val">12/12</div></div>
+      </div>
+      <div class="pharma-chart" aria-hidden="true">
+        <span style="height:45%"></span><span style="height:62%"></span><span style="height:58%"></span>
+        <span style="height:78%"></span><span style="height:71%"></span><span style="height:85%"></span>
+        <span style="height:80%"></span><span style="height:92%"></span>
+      </div>
+      <table class="pharma-zone-table">
+        <thead>
+          <tr><th>Zone</th><th>Temp</th><th>Status</th><th>BMS</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>A — Cold storage</td><td>18.2°C</td><td><span class="pharma-pill ok">OK</span></td><td>Idle</td></tr>
+          <tr><td>B — Pick face</td><td>19.8°C</td><td><span class="pharma-pill ok">OK</span></td><td>Idle</td></tr>
+          <tr><td>C — QA hold</td><td>21.4°C</td><td><span class="pharma-pill warn">High</span></td><td>Vent ↑</td></tr>
+          <tr><td>D — Dispatch</td><td>19.1°C</td><td><span class="pharma-pill ok">OK</span></td><td>Idle</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</PharmaHmiFrame>

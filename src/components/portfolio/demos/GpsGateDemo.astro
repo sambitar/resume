@@ -1,0 +1,24 @@
+<svg class="demo-svg demo-gps-gate" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" fill="#0c0f14" />
+  <!-- Gate -->
+  <rect x="200" y="70" width="8" height="90" fill="#2a3548" />
+  <g class="gate-arm">
+    <rect x="208" y="78" width="72" height="6" rx="2" fill="#3d9eff" />
+  </g>
+  <rect x="188" y="155" width="100" height="4" fill="#2a3548" />
+  <!-- GPS zone -->
+  <circle cx="120" cy="95" r="48" fill="none" stroke="#2563a8" stroke-width="1.5" stroke-dasharray="6 4" class="gps-pulse-ring" />
+  <circle cx="120" cy="95" r="28" fill="rgba(61,158,255,0.08)" stroke="#3d9eff" stroke-width="1" />
+  <path d="M120 72 L120 95 L135 108" stroke="#3d9eff" stroke-width="2" fill="none" stroke-linecap="round" />
+  <circle cx="120" cy="95" r="5" fill="#3d9eff" />
+  <text x="120" y="155" text-anchor="middle" fill="#9aa8bc" font-size="8" font-family="IBM Plex Mono, monospace">GEOFENCE</text>
+  <!-- Phone -->
+  <g class="gps-phone">
+    <rect x="36" y="50" width="56" height="100" rx="8" fill="#1a2230" stroke="#2a3548" stroke-width="1.5" />
+    <rect x="44" y="62" width="40" height="56" rx="4" fill="#141a24" />
+    <circle cx="64" cy="128" r="4" fill="#2a3548" />
+    <path d="M52 78 L76 78 L64 92 Z" fill="#3d9eff" opacity="0.8" />
+    <text x="64" y="108" text-anchor="middle" fill="#3d9eff" font-size="7" font-family="IBM Plex Mono, monospace">OPEN</text>
+  </g>
+  <path class="gps-signal" d="M 92 95 Q 150 95 208 81" stroke="#3d9eff" stroke-width="1.5" fill="none" stroke-dasharray="5 4" opacity="0.7" />
+</svg>

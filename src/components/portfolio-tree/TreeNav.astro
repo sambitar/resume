@@ -1,0 +1,67 @@
+---
+import type { TreeNode } from "../../lib/portfolio-tree";
+
+interface Props {
+  tree: TreeNode[];
+  activeHref?: string;
+}
+
+const { tree, activeHref = Astro.url.pathname } = Astro.props;
+
+function isActive(href?: string) {
+  if (!href) return false;
+  if (href === activeHref) return true;
+  return activeHref.startsWith(href) && href !== "/portfolio";
+}
+---
+
+<nav class="portfolio-tree-nav" aria-label="Project tree">
+  <ul>
+    {tree.map((node) => {
+      if (node.type === "folder" && node.children) {
+        return (
+          <li class="tree-folder">
+            <span class="tree-folder-label">{node.label}</span>
+            <ul>
+              {node.children.map((child) => (
+                <li class="tree-project">
+                  <a
+                    href={child.href}
+                    class:list={[{ "is-active": isActive(child.href) }]}
+                    aria-current={isActive(child.href) ? "page" : undefined}
+                  >
+                    {child.label}
+                  </a>
+                  {child.tagline && (
+                    <span class="tree-tagline">{child.tagline}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </li>
+        );
+      }
+      return (
+        <li>
+          <a
+            href={node.href}
+            class:list={[{ "is-active": isActive(node.href) }]}
+            aria-current={isActive(node.href) ? "page" : undefined}
+          >
+            {node.label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>
+
+<style>
+  .tree-tagline {
+    display: block;
+    padding: 0 0 0.5rem 1.25rem;
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+</style>

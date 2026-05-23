@@ -1,0 +1,295 @@
+/* Tree portfolio shell — uses site dark chrome, separate from app screenshots */
+
+.portfolio-tree-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: calc(100vh - 52px);
+}
+
+@media (min-width: 900px) {
+  .portfolio-tree-layout {
+    grid-template-columns: 260px 1fr;
+  }
+}
+
+.portfolio-tree-sidebar {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+  padding: 1.25rem 1rem;
+}
+
+@media (min-width: 900px) {
+  .portfolio-tree-sidebar {
+    position: sticky;
+    top: 52px;
+    align-self: start;
+    height: calc(100vh - 52px);
+    overflow-y: auto;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+  }
+}
+
+.portfolio-tree-sidebar h2 {
+  margin: 0 0 1rem;
+  padding: 0 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.portfolio-tree-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-tree-nav .tree-folder {
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-tree-nav .tree-folder-label {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.portfolio-tree-nav a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin: 0.125rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-muted);
+  border-radius: 6px;
+  border-left: 2px solid transparent;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.portfolio-tree-nav a:hover {
+  color: var(--text);
+  background: var(--bg-card);
+}
+
+.portfolio-tree-nav a.is-active {
+  color: var(--accent);
+  background: var(--accent-glow);
+  border-left-color: var(--accent);
+}
+
+.portfolio-tree-nav .tree-project a {
+  padding-left: 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.portfolio-tree-main {
+  padding: 1.5rem 0 3rem;
+  min-width: 0;
+}
+
+.portfolio-tree-main .container-wide {
+  width: min(100% - 2rem, 960px);
+  margin-inline: auto;
+}
+
+.tree-overview-hero {
+  margin-bottom: 2rem;
+}
+
+.tree-overview-hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.tree-overview-hero p {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--text-muted);
+}
+
+.tree-project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tree-project-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tree-project-card:hover {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 1px var(--accent-glow);
+}
+
+.tree-project-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.0625rem;
+  color: var(--accent);
+}
+
+.tree-project-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Full project page */
+.project-page-hero {
+  margin-bottom: 2.5rem;
+}
+
+.project-page-hero .product-badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-dim);
+  border-radius: 4px;
+}
+
+.project-page-hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.project-page-hero .lead {
+  margin: 0 0 1rem;
+  max-width: 58ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.project-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-meta-row span {
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  color: var(--text);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.project-outcomes {
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project-outcomes li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+
+.project-outcomes li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.project-features-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .project-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .project-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-feature-chip {
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.project-feature-chip h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.9375rem;
+}
+
+.project-feature-chip p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.screenshots-section h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.screenshots-section .section-hint {
+  margin: 0 0 1.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.screenshot-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.screenshot-block {
+  scroll-margin-top: 5rem;
+}
+
+.screenshot-block figcaption {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.screenshot-block .sim-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: right;
+}

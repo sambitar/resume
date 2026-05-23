@@ -1,0 +1,20 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "PharmaVault HMI — Warehouse A" } = Astro.props;
+---
+
+<div class="pharma-window">
+  <div class="pharma-titlebar">
+    <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+    <span class="title">{title}</span>
+    <span style="width:40px"></span>
+  </div>
+  <div class="pharma-app">
+    <div class="pharma-body">
+      <slot />
+    </div>
+  </div>
+</div>

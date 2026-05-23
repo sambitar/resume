@@ -1,0 +1,111 @@
+- id: systems-integration
+  title: Systems Integration & Protocol Design
+  summary: >
+    End-to-end integration of legacy and modern systems—bridging analog equipment
+    with network-based TCP/IP platforms through practical architectures and custom
+    protocols so mixed-vendor environments operate as one coordinated system.
+  competencies:
+    - Legacy-to-IP bridging and gateway design
+    - Custom protocol definition for device interoperability
+    - Unified monitoring and control across analog and network systems
+    - Cross-vendor coordination without unnecessary rip-and-replace
+    - Solution simplification to reduce failure modes and support burden
+    - Efficiency-focused designs sized to actual operational needs
+
+- id: low-voltage-security
+  title: Low-Voltage & Life-Safety Systems
+  summary: >
+    Hands-on expertise across integrated security and life-safety low-voltage
+    systems—from installation through commissioning, configuration, and ongoing
+    maintenance—with experience leading field teams on complex sites.
+  competencies:
+    - CCTV and video surveillance systems
+    - Intrusion and burglar alarm systems
+    - Fire detection and alarm systems
+    - Access control systems
+    - Installation, commissioning, and programming/configuration
+    - Field team leadership for maintenance and service delivery
+
+- id: facility-bms
+  title: Facility Technology & Building Management
+  summary: >
+    Building management and facility control in multi-trade low-voltage
+    environments, including project delivery and coordination when security,
+    life-safety, and automation systems must work together on site.
+  competencies:
+    - Building management systems (BMS), including Schneider Electric platforms
+    - Multi-system facility projects and trade coordination
+    - Low-voltage project planning and execution
+    - Integration of BMS with security and life-safety subsystems
+    - Commissioning and handover for operational reliability
+    - Stakeholder communication across technical and non-technical audiences
+
+- id: queuing-operations
+  title: Queuing & Branch Operations
+  summary: >
+    Deployment and support of enterprise queuing and customer-flow systems in
+    high-traffic environments such as banks and public institutions, ensuring
+    reliable day-to-day operation after go-live.
+  competencies:
+    - Enterprise queuing system deployment (NemoQ and similar platforms)
+    - Branch and institute workflow configuration
+    - Installation, commissioning, and tuning for peak traffic
+    - Technician coordination for installs and maintenance
+    - Troubleshooting and uptime-focused service
+    - End-user environment fit and operational handover
+
+- id: rd-hardware
+  title: R&D & Hardware Engineering
+  summary: >
+    Retrofit and extend installed systems with new capabilities—adding smart
+    layers to existing equipment, replacing obsolete components, and designing
+    reliability-focused hardware when software alone is not the right answer.
+  competencies:
+    - Feature upgrades on legacy control and alarm systems
+    - Life-safety enhancements (e.g. extinguishing integration on conventional panels)
+    - Mobile and location-based control retrofits (GPS/app replacing physical keys)
+    - Custom power solutions for discontinued or unsupported equipment
+    - Relay-to-solid-state upgrades to reduce mechanical failures
+    - Dedicated hardware designs that eliminate unnecessary software dependencies
+
+- id: iot-edge
+  title: IoT & Edge Systems
+  summary: >
+    IoT orchestration and edge device integration for monitoring and control—using
+    off-the-shelf smart devices, flow-based automation, and custom endpoints built
+    on embedded platforms.
+  competencies:
+    - Node-RED flows for device orchestration and automation
+    - Integration of commercial IoT devices (e.g. Sonoff and similar)
+    - Custom endpoints on ESP32-class embedded hardware
+    - Sensor networks for environmental and equipment monitoring
+    - Edge-to-cloud and edge-to-alarm connectivity patterns
+    - Rapid prototyping from idea to working field deployment
+
+- id: data-reporting
+  title: Data, Analysis & Reporting
+  summary: >
+    Field data collection through structured reporting—surveying, analysis,
+    visualization, and periodic deliverables for program and operations stakeholders
+    who need clear, auditable outputs.
+  competencies:
+    - Field surveying and data collection workflows
+    - Data analysis with R, Python, and Excel
+    - Data visualization for operational and program review
+    - Quarterly and annual structured reporting cycles
+    - Quality control and consistency across reporting periods
+    - Translating raw field data into decision-ready summaries
+
+- id: software-dashboards
+  title: Software, Dashboards & Alerts
+  summary: >
+    Purpose-built software for data processing, system control, and operational
+    visibility—including backends, dashboards, notification hooks, and AI-assisted
+    tools—delivered as focused solutions rather than large product-team engineering.
+  competencies:
+    - Backend scripts and services for data processing and control
+    - Protocol and integration logic for system integrity
+    - Operational dashboards (open-source stacks and AI-assisted builds)
+    - AI-assisted application features (e.g. project Q&A over structured data)
+    - Alert integrations via APIs, SMS, and email for responsible parties
+    - Rack and cabinet monitoring (multi-point temperature/humidity with external alarms)

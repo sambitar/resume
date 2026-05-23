@@ -1,0 +1,16 @@
+---
+import PmScreenshot from "./PmScreenshot.astro";
+import GateScreenshot from "./GateScreenshot.astro";
+import PharmaScreenshot from "./PharmaScreenshot.astro";
+
+interface Props {
+  projectId: string;
+  id: string;
+}
+
+const { projectId, id } = Astro.props;
+---
+
+{projectId === "meridian-pm" && <PmScreenshot id={id} />}
+{projectId === "gate-smart-access" && <GateScreenshot id={id} />}
+{projectId === "pharma-warehouse-env" && <PharmaScreenshot id={id} />}

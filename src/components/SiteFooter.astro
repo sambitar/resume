@@ -1,0 +1,27 @@
+---
+import ProfileName from "./ProfileName.astro";
+import { site } from "../lib/content";
+
+interface Props {
+  showPortfolioLink?: boolean;
+}
+
+const { showPortfolioLink = false } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer-inner">
+      <ProfileName variant="footer" />
+      <a class="footer-contact" href={`mailto:${site.profile.email}`}>
+        {site.profile.email}
+      </a>
+      <p class="footer-note">{site.footer.note}</p>
+    </div>
+    {showPortfolioLink && (
+      <p class="portfolio-note">
+        <a href="/portfolio">View portfolio</a>
+      </p>
+    )}
+  </div>
+</footer>

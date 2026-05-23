@@ -1,0 +1,80 @@
+---
+interface Props {
+  state?: "closed" | "opening" | "open" | "closing" | "cycle";
+}
+
+const { state = "closed" } = Astro.props;
+---
+
+<div class={`garage-scene garage-scene--${state}`} role="img" aria-label={`Garage door ${state}`}>
+  <svg class="garage-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#7dd3fc" />
+        <stop offset="100%" stop-color="#bae6fd" />
+      </linearGradient>
+      <linearGradient id="driveway" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#57534e" />
+        <stop offset="100%" stop-color="#44403c" />
+      </linearGradient>
+      <linearGradient id="door-panel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#e7e5e4" />
+        <stop offset="50%" stop-color="#d6d3d1" />
+        <stop offset="100%" stop-color="#a8a29e" />
+      </linearGradient>
+    </defs>
+    <!-- Sky -->
+    <rect width="400" height="140" fill="url(#sky)" />
+    <!-- Driveway -->
+    <path d="M0 200 L400 200 L400 260 L0 260 Z" fill="url(#driveway)" />
+    <path d="M0 200 L400 200" stroke="#292524" stroke-width="1" opacity="0.3" />
+    <!-- House wall -->
+    <rect x="60" y="70" width="280" height="130" fill="#d6d3d1" />
+    <rect x="60" y="70" width="280" height="8" fill="#a8a29e" />
+    <!-- Roof -->
+    <polygon points="50,70 200,25 350,70" fill="#78716c" />
+    <polygon points="55,70 200,32 345,70" fill="#57534e" />
+    <!-- Garage opening frame -->
+    <rect x="95" y="95" width="210" height="105" fill="#1c1917" />
+    <rect x="90" y="90" width="220" height="8" rx="1" fill="#44403c" />
+    <!-- Interior (visible when open) -->
+    <g class="garage-interior">
+      <rect x="98" y="98" width="204" height="100" fill="#292524" />
+      <rect x="120" y="155" width="90" height="40" rx="4" fill="#3f3f46" opacity="0.9" />
+      <rect x="125" y="160" width="80" height="25" fill="#52525b" />
+      <ellipse cx="135" cy="192" rx="8" ry="8" fill="#18181b" />
+      <ellipse cx="185" cy="192" rx="8" ry="8" fill="#18181b" />
+      <rect x="230" y="120" width="50" height="70" fill="#44403c" opacity="0.5" />
+    </g>
+    <!-- Sectional door -->
+    <g class="garage-door">
+      <rect x="98" y="178" width="204" height="20" fill="url(#door-panel)" stroke="#a8a29e" stroke-width="0.5" />
+      <line x1="98" y1="188" x2="302" y2="188" stroke="#78716c" stroke-width="1" />
+      <rect x="98" y="158" width="204" height="20" fill="url(#door-panel)" stroke="#a8a29e" stroke-width="0.5" />
+      <line x1="98" y1="168" x2="302" y2="168" stroke="#78716c" stroke-width="1" />
+      <rect x="98" y="138" width="204" height="20" fill="url(#door-panel)" stroke="#a8a29e" stroke-width="0.5" />
+      <line x1="98" y1="148" x2="302" y2="148" stroke="#78716c" stroke-width="1" />
+      <rect x="98" y="118" width="204" height="20" fill="url(#door-panel)" stroke="#a8a29e" stroke-width="0.5" />
+      <line x1="98" y1="128" x2="302" y2="128" stroke="#78716c" stroke-width="1" />
+      <rect x="98" y="98" width="204" height="20" fill="url(#door-panel)" stroke="#a8a29e" stroke-width="0.5" />
+      <!-- Handle -->
+      <rect x="288" y="145" width="6" height="24" rx="2" fill="#57534e" />
+    </g>
+    <!-- Motion arrows (opening/closing) -->
+    <g class="garage-motion-hint" aria-hidden="true">
+      <path d="M200 55 L200 78" stroke="#22c55e" stroke-width="3" marker-end="url(#arrowUp)" />
+      <path d="M200 235 L200 212" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowDown)" opacity="0" class="hint-close" />
+    </g>
+    <defs>
+      <marker id="arrowUp" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,6 L3,0 L6,6 Z" fill="#22c55e" />
+      </marker>
+      <marker id="arrowDown" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L3,6 L6,0 Z" fill="#ef4444" />
+      </marker>
+    </defs>
+    <!-- Ground shadow -->
+    <ellipse cx="200" cy="202" rx="100" ry="6" fill="#000" opacity="0.15" class="door-shadow" />
+  </svg>
+  <span class="garage-scene-label" aria-hidden="true"></span>
+</div>

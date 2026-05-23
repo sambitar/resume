@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import ProfileName from "../components/ProfileName.astro";
+import ProfilePortrait from "../components/ProfilePortrait.astro";
+import SkillGrid from "../components/SkillGrid.astro";
+import ThemeStrip from "../components/ThemeStrip.astro";
+import { pageTitle, skills, site } from "../lib/content";
+---
+
+<BaseLayout
+  title={pageTitle("Skills")}
+  description={site.hero.subheadline}
+>
+  <SiteNav active="skills" />
+
+  <header class="site-header site-header--with-portrait">
+    <div class="container hero-layout">
+      <ProfilePortrait size="hero" />
+      <div class="hero-copy">
+        <ProfileName variant="hero" />
+        <span class="section-label">Capabilities</span>
+        <h1>{site.hero.headline}</h1>
+        <p class="subheadline">{site.hero.subheadline}</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="skills-section" aria-labelledby="skills-heading">
+      <div class="container">
+        <span class="section-label">Domains</span>
+        <h2 id="skills-heading">Skill areas</h2>
+        <SkillGrid skills={skills} />
+      </div>
+    </section>
+
+    <ThemeStrip themes={site.themes} />
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

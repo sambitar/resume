@@ -1,0 +1,25 @@
+---
+import GateMobileHome from "./screenshots/gate/GateMobileHome.astro";
+import GateMobileOpening from "./screenshots/gate/GateMobileOpening.astro";
+import GateMobileClosing from "./screenshots/gate/GateMobileClosing.astro";
+import GateLegacyIntegration from "./screenshots/gate/GateLegacyIntegration.astro";
+import GateSmartHome from "./screenshots/gate/GateSmartHome.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const map: Record<string, typeof GateMobileHome> = {
+  "mobile-home": GateMobileHome,
+  "mobile-opening": GateMobileOpening,
+  "mobile-closing": GateMobileClosing,
+  "legacy-integration": GateLegacyIntegration,
+  "smart-home": GateSmartHome,
+};
+
+const Component = map[id];
+---
+
+{Component && <Component />}

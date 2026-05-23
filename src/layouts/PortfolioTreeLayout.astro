@@ -1,0 +1,39 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import TreeNav from "../components/portfolio-tree/TreeNav.astro";
+import { portfolioTree } from "../lib/portfolio-tree";
+import "../styles/portfolio-tree.css";
+import "../styles/pm-app-screenshots.css";
+import "../styles/gate-app-screenshots.css";
+import "../styles/pharma-hmi-screenshots.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = portfolioTree.meta.title,
+  description = portfolioTree.meta.description,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <link
+    slot="head-extra"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+  />
+  <SiteNav active="portfolio" />
+
+  <div class="portfolio-tree-layout">
+    <aside class="portfolio-tree-sidebar">
+      <h2>{portfolioTree.meta.title}</h2>
+      <TreeNav tree={portfolioTree.tree} activeHref={Astro.url.pathname} />
+    </aside>
+    <div class="portfolio-tree-main">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

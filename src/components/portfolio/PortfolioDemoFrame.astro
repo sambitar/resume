@@ -1,0 +1,14 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "Simulated demonstration" } = Astro.props;
+---
+
+<div class="portfolio-demo" data-demo>
+  <span class="portfolio-demo-label">{label}</span>
+  <div class="portfolio-demo-canvas" aria-hidden="true">
+    <slot />
+  </div>
+</div>

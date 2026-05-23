@@ -1,0 +1,25 @@
+---
+import PharmaMap3d from "./screenshots/pharma/PharmaMap3d.astro";
+import PharmaHmiLive from "./screenshots/pharma/PharmaHmiLive.astro";
+import PharmaSensorNode from "./screenshots/pharma/PharmaSensorNode.astro";
+import PharmaLoggingReports from "./screenshots/pharma/PharmaLoggingReports.astro";
+import PharmaBmsIntegration from "./screenshots/pharma/PharmaBmsIntegration.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const map: Record<string, typeof PharmaMap3d> = {
+  "map-3d": PharmaMap3d,
+  "hmi-live": PharmaHmiLive,
+  "sensor-node": PharmaSensorNode,
+  "logging-reports": PharmaLoggingReports,
+  "bms-integration": PharmaBmsIntegration,
+};
+
+const Component = map[id];
+---
+
+{Component && <Component />}

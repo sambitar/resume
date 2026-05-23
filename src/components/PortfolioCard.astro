@@ -1,0 +1,47 @@
+---
+import type { PortfolioProject } from "../lib/content";
+import { skillLabel } from "../lib/content";
+import PortfolioVisual from "./portfolio/PortfolioVisual.astro";
+
+interface Props {
+  project: PortfolioProject;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="portfolio-card" id={project.id}>
+  <PortfolioVisual id={project.id} />
+
+  <div class="portfolio-card-body">
+    <h3>{project.title}</h3>
+    <p class="summary">{project.summary}</p>
+
+    <ul class="tech-badges" aria-label="Technologies">
+      {project.tech.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+
+    <p class="outcome">
+      <span class="outcome-label">Outcome</span>
+      {project.outcome}
+    </p>
+
+    {project.caseStudy && (
+      <p class="case-study-link">
+        <a href={`/portfolio/${project.caseStudy}`}>View case study →</a>
+      </p>
+    )}
+
+    {project.tags.length > 0 && (
+      <ul class="portfolio-tags" aria-label="Related skill areas">
+        {project.tags.map((tag) => (
+          <li>
+            <a href={`/#${tag}`}>{skillLabel(tag)}</a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</article>

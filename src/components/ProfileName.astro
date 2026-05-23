@@ -1,0 +1,21 @@
+---
+import { site } from "../lib/content";
+
+interface Props {
+  variant?: "hero" | "compact" | "nav" | "footer";
+}
+
+const { variant = "hero" } = Astro.props;
+const { givenName, familyName, name } = site.profile;
+
+const Tag = variant === "nav" ? "span" : "p";
+---
+
+<Tag
+  class:list={["profile-name", `profile-name--${variant}`]}
+  {...(variant !== "nav" && { "aria-label": name })}
+>
+  <span class="profile-name-given">{givenName}</span>
+  <span class="profile-name-sep" aria-hidden="true"></span>
+  <span class="profile-name-family">{familyName}</span>
+</Tag>

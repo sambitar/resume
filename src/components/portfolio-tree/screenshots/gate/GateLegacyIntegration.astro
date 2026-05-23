@@ -1,0 +1,52 @@
+---
+---
+
+<div class="integration-frame">
+  <p class="frame-title">Legacy bridge — no motor replacement</p>
+  <div class="integration-diagram">
+    <div class="int-row">
+      <div class="int-box legacy">
+        <span class="icon">📻</span>
+        Handheld remote
+        <span class="int-label">RF / rolling code</span>
+      </div>
+      <span class="int-arrow">→</span>
+      <div class="int-box legacy">
+        <span class="icon">▣</span>
+        Existing receiver
+        <span class="int-label">OEM control board</span>
+      </div>
+    </div>
+    <div class="int-line"></div>
+    <div class="int-row">
+      <div class="int-box iot">
+        <span class="icon">⬡</span>
+        GateLink node
+        <span class="int-label">ESP32 · dry contact</span>
+      </div>
+      <span class="int-arrow delay">→</span>
+      <div class="int-box motor">
+        <span class="icon">⛩</span>
+        Gate / garage motor
+        <span class="int-label">Same wiring as remote</span>
+      </div>
+    </div>
+    <div class="int-cloud">Wi‑Fi / MQTT — phone app & cloud routines</div>
+    <div class="int-row">
+      <div class="int-box">
+        <span class="icon">📱</span>
+        GateLink app
+        <span class="int-label">Open · Close</span>
+      </div>
+      <span class="int-arrow">↔</span>
+      <div class="int-box iot">
+        <span class="icon">⬡</span>
+        IoT node
+        <span class="int-label">Parallel trigger</span>
+      </div>
+    </div>
+    <p style="margin:0.75rem 0 0;font-size:9px;color:#64748b;text-align:center">
+      Node taps the same inputs your remote uses — remotes still work.
+    </p>
+  </div>
+</div>

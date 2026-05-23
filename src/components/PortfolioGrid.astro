@@ -1,0 +1,16 @@
+---
+import type { PortfolioProject } from "../lib/content";
+import PortfolioCard from "./PortfolioCard.astro";
+
+interface Props {
+  projects: PortfolioProject[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="portfolio-grid">
+  {projects.map((project) => (
+    <PortfolioCard project={project} />
+  ))}
+</div>

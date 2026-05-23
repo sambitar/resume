@@ -1,0 +1,68 @@
+---
+import AppWindow from "../AppWindow.astro";
+---
+
+<AppWindow url="app.meridian-pm.io/dashboard">
+  <div class="pm-app-shell">
+    <aside class="pm-sidebar">
+      <div class="logo"><span class="logo-mark"></span> Meridian</div>
+      <span class="pm-nav-item active">Dashboard</span>
+      <span class="pm-nav-item">Projects</span>
+      <span class="pm-nav-item">Schedule</span>
+      <span class="pm-nav-item">Financials</span>
+      <span class="pm-nav-item">Technical</span>
+      <span class="pm-nav-item">Reports</span>
+      <span class="pm-nav-item">AI Copilot</span>
+    </aside>
+    <div class="pm-main">
+      <header class="pm-header">
+        <div>
+          <h1>West Campus Expansion</h1>
+          <p class="sub">Portfolio view · Q2 2026</p>
+        </div>
+        <span class="pm-pill warn">2 risks</span>
+      </header>
+      <div class="pm-kpi-row">
+        <div class="pm-kpi">
+          <div class="label">Budget used</div>
+          <div class="value">68%</div>
+          <div class="delta">$2.1M remaining</div>
+        </div>
+        <div class="pm-kpi">
+          <div class="label">Schedule SPI</div>
+          <div class="value">0.94</div>
+          <div class="delta down">−6 days</div>
+        </div>
+        <div class="pm-kpi">
+          <div class="label">Open RFIs</div>
+          <div class="value">7</div>
+          <div class="sub">3 overdue</div>
+        </div>
+        <div class="pm-kpi">
+          <div class="label">Milestones</div>
+          <div class="value">4/6</div>
+          <span class="pm-pill ok">On track</span>
+        </div>
+      </div>
+      <div class="pm-grid-2">
+        <div class="pm-panel">
+          <h2>Burn rate (6 mo)</h2>
+          <div class="pm-bars" aria-hidden="true">
+            <span style="height: 40%"></span>
+            <span></span><span></span><span></span><span></span><span style="height: 90%"></span>
+          </div>
+        </div>
+        <div class="pm-panel">
+          <h2>At-risk work packages</h2>
+          <table class="pm-table">
+            <tbody>
+              <tr><td>MEP rough-in</td><td class="num"><span class="pm-pill risk">Late</span></td></tr>
+              <tr><td>Facade mock-up</td><td class="num"><span class="pm-pill warn">Review</span></td></tr>
+              <tr><td>IT backbone</td><td class="num"><span class="pm-pill ok">OK</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</AppWindow>

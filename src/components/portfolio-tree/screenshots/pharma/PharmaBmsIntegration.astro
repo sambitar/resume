@@ -1,0 +1,47 @@
+---
+---
+
+<div class="pharma-bms-frame">
+  <p class="frame-title">BMS integration — closed-loop environmental control</p>
+  <div class="pharma-bms-row">
+    <div class="pharma-bms-box">
+      <strong>12× ESP32 nodes</strong>
+      <div style="font-size:8px;color:#64748b;margin-top:2px">Warehouse sensors</div>
+    </div>
+    <span class="pharma-bms-arrow">→</span>
+    <div class="pharma-bms-box iot">
+      <strong>Edge gateway</strong>
+      <div style="font-size:8px;color:#64748b;margin-top:2px">MQTT · Node-RED</div>
+    </div>
+    <span class="pharma-bms-arrow">→</span>
+    <div class="pharma-bms-box">
+      <strong>PharmaVault HMI</strong>
+      <div style="font-size:8px;color:#64748b;margin-top:2px">Live map · logs</div>
+    </div>
+  </div>
+  <div class="pharma-bms-hub">Bidirectional BACnet / BMS link</div>
+  <div class="pharma-bms-row">
+    <div class="pharma-bms-box bms">
+      <strong>Existing BMS</strong>
+      <div style="font-size:8px;color:#64748b;margin-top:2px">Schneider / site PLC</div>
+    </div>
+    <span class="pharma-bms-arrow">↔</span>
+    <div class="pharma-bms-box hvac">
+      <strong>HVAC & AHU</strong>
+      <div style="font-size:8px;color:#64748b;margin-top:2px">Cooling setpoint trim</div>
+    </div>
+    <span class="pharma-bms-arrow">↔</span>
+    <div class="pharma-bms-box hvac">
+      <strong>Ventilation</strong>
+      <div style="font-size:8px;color:#64748b;margin-top:2px">Zone boost · dampers</div>
+    </div>
+    <span class="pharma-bms-arrow">→</span>
+    <div class="pharma-bms-box" style="border-color:#dc2626;background:#fef2f2">
+      <strong>Building alarms</strong>
+      <div style="font-size:8px;color:#64748b;margin-top:2px">SMS · panel · SCADA</div>
+    </div>
+  </div>
+  <p style="margin:0.75rem 0 0;font-size:9px;color:#64748b;text-align:center">
+    Zone excursions drive BMS outputs — stabilize warehouse temp without replacing the BMS.
+  </p>
+</div>

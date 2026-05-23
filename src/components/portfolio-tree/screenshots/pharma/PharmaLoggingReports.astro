@@ -1,0 +1,37 @@
+---
+import PharmaHmiFrame from "../../PharmaHmiFrame.astro";
+---
+
+<PharmaHmiFrame title="PharmaVault — Logging & compliance reports">
+  <div class="pharma-report-grid">
+    <div class="pharma-report-panel">
+      <h3>24h temperature trend</h3>
+      <div class="pharma-chart" style="height:72px" aria-hidden="true">
+        <span style="height:40%"></span><span style="height:55%"></span><span style="height:50%"></span>
+        <span style="height:70%"></span><span style="height:65%"></span><span style="height:90%"></span>
+        <span style="height:85%"></span><span style="height:75%"></span>
+        <span style="height:60%"></span><span style="height:55%"></span>
+      </div>
+      <p style="margin:0.35rem 0 0;font-size:8px;color:#0f766e">Setpoint 20°C · ±2°C validation band</p>
+    </div>
+    <div class="pharma-report-panel">
+      <h3>Excursion log</h3>
+      <div class="pharma-excursion"><span class="mark"></span> 14 May 11:22 — Zone C 21.4°C (12 min)</div>
+      <div class="pharma-excursion"><span class="mark"></span> 13 May 03:08 — Zone A 17.1°C (4 min)</div>
+      <div class="pharma-excursion"><span class="mark" style="background:#d97706"></span> 12 May 18:45 — Humidity 52% (8 min)</div>
+    </div>
+    <div class="pharma-report-panel" style="grid-column:1/-1">
+      <h3>Scheduled exports</h3>
+      <table class="pharma-zone-table">
+        <thead>
+          <tr><th>Report</th><th>Schedule</th><th>Last run</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr><td>QA daily summary</td><td>06:00</td><td>Today 06:00</td><td><span class="pharma-pill ok">PDF</span></td></tr>
+          <tr><td>Monthly validation pack</td><td>1st of month</td><td>1 May 2026</td><td><span class="pharma-pill ok">PDF</span></td></tr>
+          <tr><td>Raw CSV archive</td><td>Continuous</td><td>Live</td><td><span class="pharma-pill ok">CSV</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</PharmaHmiFrame>
