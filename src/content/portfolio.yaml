@@ -112,7 +112,7 @@ projects:
       - software-dashboards
 
   - id: ai-project-assistant
-    title: AI assistant for project operations
+    title: Natural-language reporting over project data
     summary: >
       Integrated an AI layer into project management workflows so users ask
       natural-language questions about project status, scope, and financials. Answers

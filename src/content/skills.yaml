@@ -100,12 +100,12 @@
   title: Software, Dashboards & Alerts
   summary: >
     Purpose-built software for data processing, system control, and operational
-    visibility—including backends, dashboards, notification hooks, and AI-assisted
-    tools—delivered as focused solutions rather than large product-team engineering.
+    visibility—backends, dashboards, notification hooks, and search over project
+    data—delivered as working systems, with clear scope and honest limits.
   competencies:
     - Backend scripts and services for data processing and control
     - Protocol and integration logic for system integrity
-    - Operational dashboards (open-source stacks and AI-assisted builds)
-    - AI-assisted application features (e.g. project Q&A over structured data)
+    - Operational dashboards and internal tools (open-source and purpose-built)
+    - Question-answering and search over structured project records
     - Alert integrations via APIs, SMS, and email for responsible parties
     - Rack and cabinet monitoring (multi-point temperature/humidity with external alarms)

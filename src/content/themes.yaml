@@ -27,9 +27,8 @@ themes:
   - id: pragmatic-software
     title: Pragmatic software
     description: >
-      Build scripts, backends, dashboards, and AI-assisted tools when they fit the
-      problem—strong solo delivery for data, control, and integration, with honest
-      scope about large product-team engineering.
+      Build scripts, backends, dashboards, and internal tools when they fit the
+      problem—delivered end to end, from data model through field deployment.
 
   - id: field-to-rack
     title: Field to rack
